@@ -1,0 +1,1 @@
+wsl dot -Tpng bison.dot -o bison.png

@@ -1,0 +1,148 @@
+Grammar
+
+    0 $accept: S $end
+
+    1 S: A "a" A "b"
+    2  | B "b" B "a"
+
+    3 A: "?"
+
+    4 B: "?"
+
+
+Terminals, with rules where they appear
+
+    $end (0) 0
+    error (256)
+    "a" (258) 1 2
+    "b" (259) 1 2
+    "?" (260) 3 4
+
+
+Nonterminals, with rules where they appear
+
+    $accept (6)
+        on left: 0
+    S (7)
+        on left: 1 2
+        on right: 0
+    A (8)
+        on left: 3
+        on right: 1
+    B (9)
+        on left: 4
+        on right: 2
+
+
+State 0
+
+    0 $accept: . S $end
+    1 S: . A "a" A "b"
+    2  | . B "b" B "a"
+    3 A: . "?"
+    4 B: . "?"
+
+    "?"  shift, and go to state 1
+
+    S  go to state 2
+    A  go to state 3
+    B  go to state 4
+
+
+State 1
+
+    3 A: "?" .
+    4 B: "?" .
+
+    "a"  reduce using rule 3 (A)
+    "b"  reduce using rule 4 (B)
+
+
+State 2
+
+    0 $accept: S . $end
+
+    $end  shift, and go to state 5
+
+
+State 3
+
+    1 S: A . "a" A "b"
+
+    "a"  shift, and go to state 6
+
+
+State 4
+
+    2 S: B . "b" B "a"
+
+    "b"  shift, and go to state 7
+
+
+State 5
+
+    0 $accept: S $end .
+
+    $default  accept
+
+
+State 6
+
+    1 S: A "a" . A "b"
+    3 A: . "?"
+
+    "?"  shift, and go to state 8
+
+    A  go to state 9
+
+
+State 7
+
+    2 S: B "b" . B "a"
+    4 B: . "?"
+
+    "?"  shift, and go to state 10
+
+    B  go to state 11
+
+
+State 8
+
+    3 A: "?" .
+
+    "b"  reduce using rule 3 (A)
+
+
+State 9
+
+    1 S: A "a" A . "b"
+
+    "b"  shift, and go to state 12
+
+
+State 10
+
+    4 B: "?" .
+
+    "a"  reduce using rule 4 (B)
+
+
+State 11
+
+    2 S: B "b" B . "a"
+
+    "a"  shift, and go to state 13
+
+
+State 12
+
+    1 S: A "a" A "b" .
+
+    $end  reduce using rule 1 (S)
+
+
+State 13
+
+    2 S: B "b" B "a" .
+
+    $end  reduce using rule 2 (S)
