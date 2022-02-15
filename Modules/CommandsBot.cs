@@ -44,6 +44,10 @@ namespace Epitou
             {
                 HaskellComp(arg, message);
             }
+            else if (com == ".li")
+            {
+                LispComp(arg, message);
+            }
         }
         public static void HaskellComp(string arg, SocketUserMessage message)
         {
@@ -158,5 +162,31 @@ namespace Epitou
             message.Channel.SendMessageAsync(msg);
         }
 
+        public static void LispComp(string arg, SocketUserMessage message)
+        {
+            if (File.Exists("LispRep"))
+            {
+                File.Delete("LispRep");
+            }
+            if (File.Exists("LispErr"))
+            {
+                File.Delete("LispErr");
+            }
+            if (File.Exists("lisp.lisp"))
+            {
+                File.Delete("lisp.lisp");
+            }
+            File.WriteAllText("lisp.lisp", arg);
+            PowerShell ps = PowerShell.Create();
+            ps.AddScript(File.ReadAllText(@"lisp.ps1")).Invoke();
+            if (File.Exists("LispRep") && File.ReadAllText("LispRep").Length > 0)
+            {
+                message.Channel.SendMessageAsync("```" + File.ReadAllText("LispRep") + "```");
+            }
+            else
+            {
+                message.Channel.SendMessageAsync("```" + File.ReadAllText("LispErr").Substring(0, 1000) + "...```");
+            }
+        }
     }
 }
