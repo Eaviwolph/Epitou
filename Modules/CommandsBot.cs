@@ -179,13 +179,18 @@ namespace Epitou
             File.WriteAllText("lisp.lisp", arg);
             PowerShell ps = PowerShell.Create();
             ps.AddScript(File.ReadAllText(@"lisp.ps1")).Invoke();
-            if (File.Exists("LispRep") && File.ReadAllText("LispRep").Length > 0)
+            if (File.Exists("LispRep") && File.ReadAllText("LispErr").Length == 0)
             {
-                message.Channel.SendMessageAsync("```" + File.ReadAllText("LispRep") + "```");
+                message.Channel.SendMessageAsync("```Compiled:\n" + File.ReadAllText("LispRep") + "```");
             }
             else
             {
-                message.Channel.SendMessageAsync("```" + File.ReadAllText("LispErr").Substring(0, 1000) + "...```");
+                string err = File.ReadAllText("LispErr");
+                if (err.Length > 1000)
+                {
+                    err = err.Substring(0, 1000);
+                }
+                message.Channel.SendMessageAsync("```Error:\n" + err + "...```");
             }
         }
     }

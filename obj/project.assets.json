@@ -6705,21 +6705,19 @@
   },
   "packageFolders": {
     "C:\\Users\\quent\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "D:\\Programs\\Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Program Files (x86)\\Code\\C#\\Bot\\Epitou\\Epitou.csproj",
+      "projectUniqueName": "D:\\Programs\\Code\\C#\\Epitou\\Epitou.csproj",
       "projectName": "Epitou",
-      "projectPath": "D:\\Program Files (x86)\\Code\\C#\\Bot\\Epitou\\Epitou.csproj",
+      "projectPath": "D:\\Programs\\Code\\C#\\Epitou\\Epitou.csproj",
       "packagesPath": "C:\\Users\\quent\\.nuget\\packages\\",
-      "outputPath": "D:\\Program Files (x86)\\Code\\C#\\Bot\\Epitou\\obj\\",
+      "outputPath": "D:\\Programs\\Code\\C#\\Epitou\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "D:\\Programs\\Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\quent\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6777,7 +6775,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
